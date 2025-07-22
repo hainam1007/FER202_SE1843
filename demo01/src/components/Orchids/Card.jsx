@@ -1,9 +1,12 @@
-import React from 'react'
-import { FaStar } from 'react-icons/fa'
-import { useNavigate } from 'react-router';
+import React from "react";
+import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router";
+import { useTheme } from "../../contexts/ThemeContext";
 
 function Card(props) {
   const navigate = useNavigate();
+  const { colors } = useTheme();
+
   return (
     <div
       className="relative card orchid-card"
@@ -11,16 +14,25 @@ function Card(props) {
         width: "16rem",
         height: "25rem",
         margin: "0px 3px 20px 3px",
-        backgroundColor: "white",
+        backgroundColor: colors.surface,
+        color: colors.text,
         cursor: "pointer",
-        transition: "all 0.2s"
+        transition: "all 0.2s",
+        border: `1px solid ${colors.border}`,
       }}
       onClick={() => navigate(`/orchids/${props.orchids.Id}`)}
     >
       <div className="card-body" style={{ margin: "auto" }}>
-        <img src={props.orchids.image} className="card-img-top" alt="..." style={{ width: "13rem", height: "8rem" }} />
-        <h5 className="card-title">{props.orchids.name}</h5>
-        <p className="card-text " >
+        <img
+          src={props.orchids.image}
+          className="card-img-top"
+          alt="..."
+          style={{ width: "13rem", height: "8rem" }}
+        />
+        <h5 className="card-title" style={{ color: colors.text }}>
+          {props.orchids.name}
+        </h5>
+        <p className="card-text" style={{ color: colors.textSecondary }}>
           <span className="flex items-center">
             Color:
             <div
@@ -28,11 +40,15 @@ function Card(props) {
               style={{ backgroundColor: props.orchids.color }}
             ></div>
           </span>
-          Category: {props.orchids.category}<br />
-          Origin: {props.orchids.origin}<br />
-          Likes: {props.orchids.numberOfLike}<br />
-          <div className="flex" >
-            Rating: <span className="mt-1 flex">
+          Category: {props.orchids.category}
+          <br />
+          Origin: {props.orchids.origin}
+          <br />
+          Likes: {props.orchids.numberOfLike}
+          <br />
+          <div className="flex">
+            Rating:{" "}
+            <span className="mt-1 flex">
               {Array.from({ length: props.orchids.rating }).map((_, index) => (
                 <FaStar key={index} className="text-yellow-500" />
               ))}
@@ -43,32 +59,34 @@ function Card(props) {
           <a
             className="absolute bottom-0 left-0 w-full h-15 btn btn-primary flex justify-center items-center rounded-b-lg info-btn"
             style={{
-              backgroundColor: "#E08BCA",
-              borderColor: "#E08BCA",
+              backgroundColor: colors.primary,
+              borderColor: colors.primary,
               pointerEvents: "none", // Không cho click vào button nữa
-              userSelect: "none"
+              userSelect: "none",
             }}
           >
             <p
               className="py-2 flex justify-center items-center"
               style={{
                 width: "100%",
-                margin: 0
+                margin: 0,
+                color: "white",
               }}
-            >Information
+            >
+              Information
             </p>
           </a>
         </div>
         <style>
           {`
     .orchid-card:hover {
-      box-shadow: 0 8px 32px #c44fb655, 0 2px 8px #e08bca33;
+      box-shadow: 0 8px 32px ${colors.primary}55, 0 2px 8px ${colors.primary}33;
       transform: translateY(-8px) scale(1.04);
-      border: 1.5px solid #c44fb6;
+      border: 1.5px solid ${colors.primary};
     }
     .orchid-card:hover .info-btn {
-      background-color: #c44fb6 !important;
-      border-color: #c44fb6 !important;
+      background-color: ${colors.secondary} !important;
+      border-color: ${colors.secondary} !important;
       transition: all 0.2s;
     }
     .info-btn {
@@ -77,8 +95,8 @@ function Card(props) {
   `}
         </style>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
 
-export default Card
+export default Card;

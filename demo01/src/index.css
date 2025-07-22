@@ -1,2 +1,137 @@
 @import "tailwindcss";
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Theme Styles */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light .theme-bg-primary {
+  background-color: #e08bca;
+}
+
+body.light .theme-bg-secondary {
+  background-color: #d946b2;
+}
+
+body.light .theme-bg-surface {
+  background-color: #f8f9fa;
+}
+
+body.light .theme-text {
+  color: #000000;
+}
+
+body.light .theme-text-secondary {
+  color: #6c757d;
+}
+
+body.light .theme-border {
+  border-color: #dee2e6;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark .theme-bg-primary {
+  background-color: #7c3aed;
+}
+
+body.dark .theme-bg-secondary {
+  background-color: #8b5cf6;
+}
+
+body.dark .theme-bg-surface {
+  background-color: #1a1a1a;
+}
+
+body.dark .theme-text {
+  color: #ffffff;
+}
+
+body.dark .theme-text-secondary {
+  color: #a1a1aa;
+}
+
+body.dark .theme-border {
+  border-color: #404040;
+}
+
+/* Card styles with theme support */
+body.light .card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  color: #000000;
+}
+
+body.dark .card {
+  background-color: #1a1a1a;
+  border: 1px solid #404040;
+  color: #ffffff;
+}
+
+/* Button styles with theme support */
+body.light .btn-theme {
+  background-color: #e08bca;
+  border-color: #d946b2;
+  color: #ffffff;
+}
+
+body.light .btn-theme:hover {
+  background-color: #d946b2;
+  border-color: #c026b2;
+}
+
+body.dark .btn-theme {
+  background-color: #7c3aed;
+  border-color: #8b5cf6;
+  color: #ffffff;
+}
+
+body.dark .btn-theme:hover {
+  background-color: #8b5cf6;
+  border-color: #a855f7;
+}
+
+/* Input styles with theme support */
+body.light .form-control {
+  background-color: #ffffff;
+  border-color: #dee2e6;
+  color: #000000;
+}
+
+body.light .form-control:focus {
+  border-color: #e08bca;
+  box-shadow: 0 0 0 0.2rem rgba(224, 139, 202, 0.25);
+}
+
+body.dark .form-control {
+  background-color: #1a1a1a;
+  border-color: #404040;
+  color: #ffffff;
+}
+
+body.dark .form-control:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+}
+
+/* Footer styles */
+body.light footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+body.dark footer {
+  background-color: #1a1a1a;
+  border-top: 1px solid #404040;
+}
